@@ -1,0 +1,2039 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>高考志愿填报线上语音指导</title>
+  <meta name="description" content="面向全国高考家庭的线上语音志愿填报指导，重点服务云南、四川、贵州家庭。由主顾问负责核心判断，团队协助资料、规则和方案复核。">
+  <style>
+    :root {
+      --gaokao-ink: #1f2933;
+      --gaokao-muted: #66727f;
+      --gaokao-primary: #102f4e;
+      --gaokao-title: #163b63;
+      --gaokao-secondary: #526d80;
+      --gaokao-accent: #b88746;
+      --gaokao-bg: #f7f9fc;
+      --gaokao-warm: #fbf7ef;
+      --gaokao-card: #ffffff;
+      --gaokao-line: #dce5ec;
+      --gaokao-line-strong: #cbd8e2;
+      --gaokao-shadow: 0 18px 45px rgba(16, 47, 78, 0.08);
+      --gaokao-shadow-soft: 0 12px 28px rgba(16, 47, 78, 0.06);
+      --gaokao-radius: 8px;
+      --gaokao-container: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--gaokao-ink);
+      background:
+        linear-gradient(180deg, #fbfcfe 0%, var(--gaokao-bg) 42%, #f2f5f8 100%);
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "Microsoft YaHei", serif;
+      font-size: 16px;
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(16, 47, 78, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(16, 47, 78, 0.026) 1px, transparent 1px);
+      background-size: 86px 86px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.38), transparent 62%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    .gaokao-container {
+      width: min(calc(100% - 40px), var(--gaokao-container));
+      margin: 0 auto;
+    }
+
+    .gaokao-section {
+      position: relative;
+      padding: 88px 0;
+    }
+
+    .gaokao-section-tight {
+      padding: 68px 0;
+    }
+
+    .gaokao-section-warm {
+      background: linear-gradient(180deg, rgba(251, 247, 239, 0.72), rgba(255, 255, 255, 0.28));
+      border-block: 1px solid rgba(220, 229, 236, 0.72);
+    }
+
+    .gaokao-section-head {
+      max-width: 780px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .gaokao-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 16px;
+      color: var(--gaokao-accent);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .gaokao-eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .gaokao-section-title {
+      margin: 0;
+      color: var(--gaokao-title);
+      font-size: clamp(30px, 4.2vw, 46px);
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+
+    .gaokao-section-lead {
+      margin: 16px auto 0;
+      color: var(--gaokao-muted);
+      font-size: 17px;
+      line-height: 1.86;
+    }
+
+    .gaokao-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .gaokao-grid > *,
+    .gaokao-hero-grid > *,
+    .gaokao-split > *,
+    .gaokao-method-shell > *,
+    .gaokao-team-layout > *,
+    .gaokao-region-panel > *,
+    .gaokao-quiz-layout > *,
+    .gaokao-contact-layout > * {
+      min-width: 0;
+    }
+
+    .gaokao-grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gaokao-grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .gaokao-grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .gaokao-card,
+    .gaokao-panel {
+      position: relative;
+      background: var(--gaokao-card);
+      border: 1px solid var(--gaokao-line);
+      border-radius: var(--gaokao-radius);
+      box-shadow: var(--gaokao-shadow-soft);
+    }
+
+    .gaokao-card {
+      padding: 24px;
+    }
+
+    .gaokao-card h3,
+    .gaokao-panel h3 {
+      margin: 0;
+      color: var(--gaokao-title);
+      font-size: 21px;
+      line-height: 1.38;
+      letter-spacing: 0;
+    }
+
+    .gaokao-card p,
+    .gaokao-panel p {
+      margin: 12px 0 0;
+      color: var(--gaokao-muted);
+      overflow-wrap: anywhere;
+    }
+
+    .gaokao-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 800;
+      line-height: 1;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .gaokao-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .gaokao-btn:focus-visible,
+    .gaokao-input:focus-visible,
+    .gaokao-select:focus-visible,
+    .gaokao-textarea:focus-visible,
+    .gaokao-faq-question:focus-visible,
+    .gaokao-quiz-option:focus-visible,
+    .gaokao-mobile-toggle:focus-visible {
+      outline: 3px solid rgba(184, 135, 70, 0.28);
+      outline-offset: 3px;
+    }
+
+    .gaokao-btn-primary {
+      color: #fff;
+      background: var(--gaokao-primary);
+      box-shadow: 0 16px 32px rgba(16, 47, 78, 0.18);
+    }
+
+    .gaokao-btn-primary:hover {
+      box-shadow: 0 18px 38px rgba(16, 47, 78, 0.24);
+    }
+
+    .gaokao-btn-secondary {
+      color: var(--gaokao-primary);
+      background: #fff;
+      border-color: var(--gaokao-line-strong);
+      box-shadow: 0 10px 22px rgba(16, 47, 78, 0.06);
+    }
+
+    .gaokao-btn[disabled] {
+      cursor: not-allowed;
+      opacity: 0.52;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .gaokao-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 12px 0;
+      background: rgba(247, 249, 252, 0.88);
+      border-bottom: 1px solid rgba(220, 229, 236, 0.88);
+      backdrop-filter: blur(16px);
+    }
+
+    .gaokao-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .gaokao-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gaokao-primary);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .gaokao-logo-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      color: #fff;
+      background: var(--gaokao-primary);
+      border-radius: 8px;
+      font-size: 17px;
+      box-shadow: 0 10px 24px rgba(16, 47, 78, 0.16);
+    }
+
+    .gaokao-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--gaokao-muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .gaokao-nav-links a {
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: color 160ms ease, background 160ms ease;
+    }
+
+    .gaokao-nav-links a:hover {
+      color: var(--gaokao-primary);
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .gaokao-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .gaokao-mobile-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      color: var(--gaokao-primary);
+      background: #fff;
+      border: 1px solid var(--gaokao-line);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .gaokao-mobile-toggle span,
+    .gaokao-mobile-toggle::before,
+    .gaokao-mobile-toggle::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 2px;
+      margin: 4px auto;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .gaokao-hero {
+      padding: 78px 0 54px;
+    }
+
+    .gaokao-hero-grid,
+    .gaokao-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.78fr);
+      gap: 46px;
+      align-items: center;
+    }
+
+    .gaokao-hero h1 {
+      max-width: 760px;
+      margin: 0;
+      color: var(--gaokao-primary);
+      font-size: clamp(42px, 5.8vw, 70px);
+      line-height: 1.12;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .gaokao-title-accent {
+      color: var(--gaokao-accent);
+    }
+
+    .gaokao-title-line {
+      display: block;
+    }
+
+    .gaokao-hero-lead {
+      max-width: 720px;
+      margin: 22px 0 0;
+      color: var(--gaokao-muted);
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+    }
+
+    .gaokao-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .gaokao-hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .gaokao-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      color: var(--gaokao-secondary);
+      background: #fff;
+      border: 1px solid var(--gaokao-line);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(16, 47, 78, 0.04);
+    }
+
+    .gaokao-badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--gaokao-accent);
+    }
+
+    .gaokao-hero-panel {
+      padding: 26px;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+      border: 1px solid var(--gaokao-line-strong);
+      border-radius: var(--gaokao-radius);
+      box-shadow: var(--gaokao-shadow);
+    }
+
+    .gaokao-doc-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--gaokao-line);
+    }
+
+    .gaokao-doc-label h2 {
+      margin: 0;
+      color: var(--gaokao-primary);
+      font-size: 22px;
+      line-height: 1.36;
+    }
+
+    .gaokao-doc-label span {
+      color: var(--gaokao-accent);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .gaokao-doc-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .gaokao-doc-row {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--gaokao-line);
+      border-radius: var(--gaokao-radius);
+    }
+
+    .gaokao-doc-row strong {
+      display: block;
+      color: var(--gaokao-title);
+      line-height: 1.36;
+    }
+
+    .gaokao-doc-row p {
+      margin: 4px 0 0;
+      color: var(--gaokao-muted);
+      font-size: 14px;
+      line-height: 1.62;
+      overflow-wrap: anywhere;
+    }
+
+    .gaokao-doc-icon,
+    .gaokao-icon {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      color: var(--gaokao-primary);
+      background: #eef3f7;
+      border: 1px solid #e1e9ef;
+      border-radius: 8px;
+      font-weight: 900;
+    }
+
+    .gaokao-doc-note {
+      margin-top: 18px;
+      padding: 14px;
+      color: var(--gaokao-primary);
+      background: var(--gaokao-warm);
+      border: 1px solid rgba(184, 135, 70, 0.26);
+      border-radius: var(--gaokao-radius);
+      font-weight: 800;
+    }
+
+    .gaokao-certainty {
+      padding: 18px 0 74px;
+    }
+
+    .gaokao-proof-card {
+      padding: 22px;
+      background: #fff;
+      border-top: 3px solid var(--gaokao-accent);
+    }
+
+    .gaokao-proof-card strong {
+      display: block;
+      color: var(--gaokao-title);
+      font-size: 19px;
+      line-height: 1.4;
+    }
+
+    .gaokao-proof-card span {
+      display: block;
+      margin-top: 9px;
+      color: var(--gaokao-muted);
+      line-height: 1.72;
+    }
+
+    .gaokao-method-shell {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.64fr) minmax(0, 1fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .gaokao-sticky-copy {
+      position: sticky;
+      top: 96px;
+      padding: 30px;
+      background: var(--gaokao-primary);
+      color: #fff;
+      border-radius: var(--gaokao-radius);
+      box-shadow: var(--gaokao-shadow);
+    }
+
+    .gaokao-sticky-copy .gaokao-eyebrow {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .gaokao-sticky-copy h2 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(28px, 3.6vw, 42px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .gaokao-sticky-copy p {
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.86;
+    }
+
+    .gaokao-method-steps {
+      display: grid;
+      gap: 14px;
+      counter-reset: gaokao-method;
+    }
+
+    .gaokao-method-step {
+      counter-increment: gaokao-method;
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid var(--gaokao-line);
+      border-radius: var(--gaokao-radius);
+      box-shadow: var(--gaokao-shadow-soft);
+    }
+
+    .gaokao-method-step::before {
+      content: counter(gaokao-method, decimal-leading-zero);
+      display: grid;
+      place-items: center;
+      width: 50px;
+      height: 50px;
+      color: var(--gaokao-primary);
+      background: var(--gaokao-warm);
+      border: 1px solid rgba(184, 135, 70, 0.24);
+      border-radius: var(--gaokao-radius);
+      font-weight: 900;
+    }
+
+    .gaokao-method-step h3 {
+      margin: 0;
+      color: var(--gaokao-title);
+      font-size: 21px;
+    }
+
+    .gaokao-method-step p {
+      margin: 8px 0 0;
+      color: var(--gaokao-muted);
+    }
+
+    .gaokao-team-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .gaokao-owner-card {
+      padding: 30px;
+      color: #fff;
+      background: linear-gradient(180deg, var(--gaokao-primary), #173d62);
+      border: 0;
+      box-shadow: var(--gaokao-shadow);
+    }
+
+    .gaokao-owner-card h3 {
+      color: #fff;
+      font-size: clamp(27px, 3vw, 38px);
+    }
+
+    .gaokao-owner-card p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .gaokao-owner-list {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .gaokao-owner-list li {
+      display: flex;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: 800;
+    }
+
+    .gaokao-owner-list li::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 8px;
+      height: 8px;
+      margin-top: 10px;
+      background: var(--gaokao-accent);
+      border-radius: 999px;
+    }
+
+    .gaokao-support-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .gaokao-support-card {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 20px;
+    }
+
+    .gaokao-delivery-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 228px;
+      border-top: 3px solid rgba(184, 135, 70, 0.76);
+    }
+
+    .gaokao-delivery-meta {
+      margin-top: auto;
+      padding-top: 18px;
+      color: var(--gaokao-secondary);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .gaokao-process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      counter-reset: gaokao-process;
+    }
+
+    .gaokao-step-card {
+      counter-increment: gaokao-process;
+      min-height: 238px;
+    }
+
+    .gaokao-step-card::before {
+      content: counter(gaokao-process, decimal-leading-zero);
+      display: inline-grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 18px;
+      color: #fff;
+      background: var(--gaokao-primary);
+      border-radius: 8px;
+      font-weight: 900;
+    }
+
+    .gaokao-region-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+      gap: 26px;
+      align-items: center;
+      padding: 32px;
+      background: var(--gaokao-warm);
+      border: 1px solid rgba(184, 135, 70, 0.22);
+      border-radius: var(--gaokao-radius);
+      box-shadow: var(--gaokao-shadow-soft);
+    }
+
+    .gaokao-region-panel h2 {
+      margin: 0;
+      color: var(--gaokao-title);
+      font-size: clamp(28px, 3.7vw, 42px);
+      line-height: 1.18;
+    }
+
+    .gaokao-region-panel p {
+      margin: 16px 0 0;
+      color: var(--gaokao-muted);
+      font-size: 17px;
+    }
+
+    .gaokao-region-tags {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .gaokao-region-tag {
+      padding: 18px;
+      color: var(--gaokao-primary);
+      background: #fff;
+      border: 1px solid rgba(184, 135, 70, 0.22);
+      border-radius: var(--gaokao-radius);
+      text-align: center;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .gaokao-quiz-layout,
+    .gaokao-contact-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .gaokao-quiz-intro,
+    .gaokao-quiz,
+    .gaokao-form-card,
+    .gaokao-contact-copy {
+      padding: 28px;
+    }
+
+    .gaokao-quiz-intro h2,
+    .gaokao-contact-copy h2 {
+      margin: 0;
+      color: var(--gaokao-title);
+      font-size: clamp(28px, 3.8vw, 42px);
+      line-height: 1.2;
+    }
+
+    .gaokao-check-list,
+    .gaokao-contact-points {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .gaokao-check-list li,
+    .gaokao-contact-points li {
+      display: flex;
+      gap: 10px;
+      color: var(--gaokao-ink);
+      font-weight: 800;
+    }
+
+    .gaokao-check-list li::before,
+    .gaokao-contact-points li::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 8px;
+      height: 8px;
+      margin-top: 10px;
+      background: var(--gaokao-accent);
+      border-radius: 999px;
+    }
+
+    .gaokao-quiz-progress {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .gaokao-quiz-step {
+      min-width: 58px;
+      color: var(--gaokao-primary);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .gaokao-progress-track {
+      flex: 1;
+      height: 8px;
+      overflow: hidden;
+      background: #e8eef3;
+      border-radius: 999px;
+    }
+
+    .gaokao-progress-bar {
+      display: block;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--gaokao-primary), var(--gaokao-accent));
+      border-radius: inherit;
+      transition: width 220ms ease;
+    }
+
+    .gaokao-quiz-question {
+      margin: 0 0 18px;
+      color: var(--gaokao-title);
+      font-size: clamp(22px, 3vw, 29px);
+      line-height: 1.35;
+    }
+
+    .gaokao-quiz-options {
+      display: grid;
+      gap: 12px;
+    }
+
+    .gaokao-quiz-option {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 12px;
+      align-items: start;
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      color: var(--gaokao-ink);
+      background: #fff;
+      border: 1px solid var(--gaokao-line);
+      border-radius: var(--gaokao-radius);
+      cursor: pointer;
+      transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .gaokao-quiz-option:hover {
+      transform: translateY(-1px);
+      border-color: var(--gaokao-line-strong);
+      background: #fbfcfe;
+    }
+
+    .gaokao-quiz-option[aria-pressed="true"] {
+      border-color: rgba(184, 135, 70, 0.58);
+      background: rgba(251, 247, 239, 0.86);
+    }
+
+    .gaokao-option-letter {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      color: var(--gaokao-primary);
+      background: #eef3f7;
+      border-radius: 8px;
+      font-weight: 900;
+    }
+
+    .gaokao-option-text {
+      color: var(--gaokao-ink);
+      font-weight: 800;
+      line-height: 1.62;
+    }
+
+    .gaokao-quiz-actions,
+    .gaokao-result-actions,
+    .gaokao-form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .gaokao-quiz-actions {
+      justify-content: space-between;
+    }
+
+    .gaokao-quiz-result {
+      display: none;
+      padding: 24px;
+      background: #fff;
+      border: 1px solid var(--gaokao-line);
+      border-radius: var(--gaokao-radius);
+    }
+
+    .gaokao-quiz-result.is-visible {
+      display: block;
+    }
+
+    .gaokao-result-score {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 7px 11px;
+      color: var(--gaokao-primary);
+      background: var(--gaokao-warm);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .gaokao-result-title {
+      margin: 0;
+      color: var(--gaokao-title);
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .gaokao-result-text {
+      margin: 14px 0 0;
+      color: var(--gaokao-muted);
+      line-height: 1.85;
+    }
+
+    .gaokao-result-focus {
+      display: grid;
+      gap: 9px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .gaokao-result-focus li {
+      color: var(--gaokao-ink);
+      font-weight: 800;
+    }
+
+    .gaokao-result-focus li::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 8px;
+      background: var(--gaokao-accent);
+      border-radius: 999px;
+      vertical-align: middle;
+    }
+
+    .gaokao-faq-list {
+      display: grid;
+      gap: 14px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .gaokao-faq-item {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .gaokao-faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      width: 100%;
+      padding: 22px 24px;
+      color: var(--gaokao-title);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      text-align: left;
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    .gaokao-faq-icon {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      color: var(--gaokao-primary);
+      background: #eef3f7;
+      border-radius: 999px;
+      transition: transform 180ms ease;
+    }
+
+    .gaokao-faq-item.is-open .gaokao-faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .gaokao-faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 200ms ease;
+    }
+
+    .gaokao-faq-item.is-open .gaokao-faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .gaokao-faq-answer-inner {
+      overflow: hidden;
+    }
+
+    .gaokao-faq-answer p {
+      margin: 0;
+      padding: 0 24px 22px;
+      color: var(--gaokao-muted);
+    }
+
+    .gaokao-contact-copy {
+      color: #fff;
+      background: var(--gaokao-primary);
+      border: 0;
+      box-shadow: var(--gaokao-shadow);
+    }
+
+    .gaokao-contact-copy h2 {
+      color: #fff;
+    }
+
+    .gaokao-contact-copy p,
+    .gaokao-contact-copy .gaokao-contact-points li {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .gaokao-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .gaokao-field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .gaokao-field-full {
+      grid-column: 1 / -1;
+    }
+
+    .gaokao-label {
+      color: var(--gaokao-primary);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .gaokao-input,
+    .gaokao-select,
+    .gaokao-textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      color: var(--gaokao-ink);
+      background: #fff;
+      border: 1px solid var(--gaokao-line);
+      border-radius: 8px;
+      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .gaokao-textarea {
+      min-height: 112px;
+      resize: vertical;
+    }
+
+    .gaokao-input:focus,
+    .gaokao-select:focus,
+    .gaokao-textarea:focus {
+      border-color: rgba(16, 47, 78, 0.5);
+      box-shadow: 0 0 0 4px rgba(16, 47, 78, 0.08);
+      outline: none;
+    }
+
+    .gaokao-field-error {
+      min-height: 19px;
+      color: #9b4a37;
+      font-size: 13px;
+    }
+
+    .gaokao-privacy-note {
+      margin: 16px 0 0;
+      color: var(--gaokao-muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .gaokao-form-message {
+      flex: 1 1 260px;
+      min-height: 22px;
+      color: var(--gaokao-secondary);
+      font-weight: 800;
+    }
+
+    .gaokao-footer {
+      padding: 38px 0 44px;
+      color: rgba(255, 255, 255, 0.72);
+      background: #0e2a45;
+    }
+
+    .gaokao-footer-inner {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .gaokao-footer h2 {
+      margin: 0;
+      color: #fff;
+      font-size: 22px;
+    }
+
+    .gaokao-footer p {
+      margin: 10px 0 0;
+      line-height: 1.75;
+    }
+
+    .gaokao-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px 16px;
+      font-size: 14px;
+    }
+
+    .gaokao-footer-links a {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .gaokao-disclaimer {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.64);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1020px) {
+      .gaokao-hero-grid,
+      .gaokao-split,
+      .gaokao-method-shell,
+      .gaokao-team-layout,
+      .gaokao-quiz-layout,
+      .gaokao-contact-layout,
+      .gaokao-region-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .gaokao-sticky-copy {
+        position: relative;
+        top: auto;
+      }
+
+      .gaokao-grid-4,
+      .gaokao-grid-3,
+      .gaokao-process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gaokao-nav-links {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 20px;
+        right: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.97);
+        border: 1px solid var(--gaokao-line);
+        border-radius: 8px;
+        box-shadow: var(--gaokao-shadow-soft);
+      }
+
+      .gaokao-nav-links.is-open {
+        display: flex;
+      }
+
+      .gaokao-nav-links a {
+        padding: 12px 14px;
+      }
+
+      .gaokao-mobile-toggle {
+        display: inline-block;
+      }
+    }
+
+    @media (max-width: 720px) {
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .gaokao-container {
+        width: min(calc(100% - 28px), var(--gaokao-container));
+      }
+
+      .gaokao-section {
+        padding: 64px 0;
+      }
+
+      .gaokao-section-tight {
+        padding: 52px 0;
+      }
+
+      .gaokao-hero {
+        padding: 48px 0 40px;
+      }
+
+      .gaokao-hero h1 {
+        font-size: clamp(31px, 8.2vw, 36px);
+        line-height: 1.18;
+      }
+
+      .gaokao-title-line {
+        display: block;
+      }
+
+      .gaokao-section-title,
+      .gaokao-sticky-copy h2,
+      .gaokao-region-panel h2,
+      .gaokao-quiz-intro h2,
+      .gaokao-contact-copy h2,
+      .gaokao-doc-label h2,
+      .gaokao-hero-lead,
+      .gaokao-section-lead,
+      .gaokao-doc-row p,
+      .gaokao-card p,
+      .gaokao-panel p {
+        overflow-wrap: anywhere;
+        word-break: break-all;
+      }
+
+      .gaokao-hero-lead {
+        font-size: 16px;
+      }
+
+      .gaokao-hero-badges {
+        display: grid;
+      }
+
+      .gaokao-badge {
+        width: 100%;
+        align-items: flex-start;
+        white-space: normal;
+      }
+
+      .gaokao-nav .gaokao-btn {
+        display: none;
+      }
+
+      .gaokao-hero-actions,
+      .gaokao-form-actions,
+      .gaokao-result-actions,
+      .gaokao-quiz-actions {
+        flex-direction: column;
+      }
+
+      .gaokao-btn {
+        width: 100%;
+      }
+
+      .gaokao-hero-panel,
+      .gaokao-quiz-intro,
+      .gaokao-quiz,
+      .gaokao-form-card,
+      .gaokao-contact-copy,
+      .gaokao-sticky-copy,
+      .gaokao-owner-card,
+      .gaokao-region-panel {
+        padding: 22px;
+      }
+
+      .gaokao-grid-2,
+      .gaokao-grid-3,
+      .gaokao-grid-4,
+      .gaokao-process-grid,
+      .gaokao-form-grid,
+      .gaokao-footer-inner,
+      .gaokao-region-tags {
+        grid-template-columns: 1fr;
+      }
+
+      .gaokao-method-step,
+      .gaokao-support-card,
+      .gaokao-doc-row {
+        grid-template-columns: 1fr;
+      }
+
+      .gaokao-doc-label {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .gaokao-footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="gaokao-nav" class="gaokao-nav" aria-label="网站导航">
+    <div class="gaokao-container gaokao-nav-inner">
+      <a class="gaokao-logo" href="#gaokao-hero" data-gaokao-scroll="#gaokao-hero" aria-label="回到首页">
+        <span class="gaokao-logo-mark">志</span>
+        <span>志愿填报线上指导</span>
+      </a>
+      <nav class="gaokao-nav-links" data-gaokao-nav-links aria-label="主导航">
+        <a href="#gaokao-certainty" data-gaokao-scroll="#gaokao-certainty">为什么可信</a>
+        <a href="#gaokao-method" data-gaokao-scroll="#gaokao-method">判断方法</a>
+        <a href="#gaokao-team" data-gaokao-scroll="#gaokao-team">团队支持</a>
+        <a href="#gaokao-delivery" data-gaokao-scroll="#gaokao-delivery">服务交付</a>
+        <a href="#gaokao-faq" data-gaokao-scroll="#gaokao-faq">常见问题</a>
+      </nav>
+      <div class="gaokao-nav-actions">
+        <a class="gaokao-btn gaokao-btn-primary" href="#gaokao-contact" data-gaokao-scroll="#gaokao-contact">预约语音咨询</a>
+        <button class="gaokao-mobile-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" data-gaokao-menu-toggle>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="gaokao-hero" class="gaokao-hero">
+      <div class="gaokao-container gaokao-hero-grid">
+        <div>
+          <p class="gaokao-eyebrow">全国线上语音咨询，重点服务云南、四川、贵州</p>
+          <h1>
+            <span class="gaokao-title-line">我帮高考家庭，</span>
+            <span class="gaokao-title-line">把孩子的志愿填报</span>
+            <span class="gaokao-title-line">落到<span class="gaokao-title-accent">可执行方案</span>。</span>
+          </h1>
+          <p class="gaokao-hero-lead">线上会议语音沟通，我负责核心判断，团队协助资料整理、规则核对和方案复盘。咨询后留下报告、清单和文字结论，方便家长反复核对。</p>
+          <div class="gaokao-hero-actions">
+            <a class="gaokao-btn gaokao-btn-primary" href="#gaokao-contact" data-gaokao-scroll="#gaokao-contact">预约线上语音咨询</a>
+            <a class="gaokao-btn gaokao-btn-secondary" href="#gaokao-delivery" data-gaokao-scroll="#gaokao-delivery">查看服务后能拿到什么</a>
+          </div>
+          <div class="gaokao-hero-badges" aria-label="服务确定感">
+            <span class="gaokao-badge">我本人负责核心判断</span>
+            <span class="gaokao-badge">团队协助资料与规则复核</span>
+            <span class="gaokao-badge">咨询后提供报告、清单与复盘</span>
+          </div>
+        </div>
+
+        <aside class="gaokao-hero-panel" aria-label="服务交付预览">
+          <div class="gaokao-doc-label">
+            <div>
+              <h2>一次服务结束后，家长会拿到什么</h2>
+              <p>不是只听一段建议，而是留下可复盘、可核对、可执行的材料。</p>
+            </div>
+            <span>交付预览</span>
+          </div>
+          <div class="gaokao-doc-list">
+            <div class="gaokao-doc-row">
+              <span class="gaokao-doc-icon">报</span>
+              <div><strong>报考指导报告 / 指南</strong><p>沉淀孩子的填报方向、机会区间、规则提醒和风险重点。</p></div>
+            </div>
+            <div class="gaokao-doc-row">
+              <span class="gaokao-doc-icon">表</span>
+              <div><strong>志愿填报表格清单</strong><p>把院校、专业组、梯度、风险点和核对事项整理成清单。</p></div>
+            </div>
+            <div class="gaokao-doc-row">
+              <span class="gaokao-doc-icon">复</span>
+              <div><strong>文字结论与语音后复盘</strong><p>把语音中的核心判断留下来，方便家长和孩子反复确认。</p></div>
+            </div>
+          </div>
+          <p class="gaokao-doc-note">确定感来自清楚的判断过程和明确交付，不来自任何录取承诺。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="gaokao-certainty" class="gaokao-certainty">
+      <div class="gaokao-container gaokao-grid gaokao-grid-4">
+        <article class="gaokao-card gaokao-proof-card">
+          <strong>责任确定</strong>
+          <span>核心判断和家长语音沟通由我本人负责，不把关键决策交给固定话术或客服转接。</span>
+        </article>
+        <article class="gaokao-card gaokao-proof-card">
+          <strong>方法确定</strong>
+          <span>按位次、梯度、专业、规则和家庭取舍逐项拆解，不凭感觉推荐学校。</span>
+        </article>
+        <article class="gaokao-card gaokao-proof-card">
+          <strong>支持确定</strong>
+          <span>团队协助做资料整理、招生章程核对、表格清单和复盘支持。</span>
+        </article>
+        <article class="gaokao-card gaokao-proof-card">
+          <strong>交付确定</strong>
+          <span>咨询后有报告、报考指南、表格清单、文字结论和语音后复盘。</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="gaokao-method" class="gaokao-section gaokao-section-warm">
+      <div class="gaokao-container gaokao-method-shell">
+        <aside class="gaokao-sticky-copy">
+          <p class="gaokao-eyebrow">我的判断方法</p>
+          <h2>家长要的不是更多信息，而是有人把信息变成判断。</h2>
+          <p>我会把孩子的分数位次、专业倾向、院校梯度、省份规则和家庭偏好放在同一套框架里看。这样家长知道每个选择的依据，也知道哪些风险需要提前核对。</p>
+        </aside>
+        <div class="gaokao-method-steps">
+          <article class="gaokao-method-step">
+            <div><h3>先看位次边界</h3><p>先判断孩子在本省大致处于什么竞争区间，避免只盯着分数和学校名气。</p></div>
+          </article>
+          <article class="gaokao-method-step">
+            <div><h3>再看院校梯度</h3><p>把冲、稳、保的作用讲清楚，明确每一档志愿承担的机会和风险。</p></div>
+          </article>
+          <article class="gaokao-method-step">
+            <div><h3>再看专业适配</h3><p>结合孩子兴趣、学科优势、课程难度和长期发展，不让热门专业替代真实适配。</p></div>
+          </article>
+          <article class="gaokao-method-step">
+            <div><h3>核对规则风险</h3><p>逐项关注专业组、调剂、单科、体检、招生计划变化等容易被忽略的细节。</p></div>
+          </article>
+          <article class="gaokao-method-step">
+            <div><h3>形成家庭取舍</h3><p>把学校层次、城市、专业和风险承受度排出优先级，让家长和孩子能围绕事实讨论。</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gaokao-team" class="gaokao-section">
+      <div class="gaokao-container">
+        <div class="gaokao-section-head">
+          <p class="gaokao-eyebrow">个人负责 + 团队支持</p>
+          <h2 class="gaokao-section-title">你和我语音沟通，背后也有团队把资料和规则核清楚。</h2>
+          <p class="gaokao-section-lead">团队不是替代我的判断，而是为我的判断提供资料、数据、规则和复盘支持。最终建议由我统一解释给家长。</p>
+        </div>
+        <div class="gaokao-team-layout">
+          <article class="gaokao-card gaokao-owner-card">
+            <h3>由我负责核心判断</h3>
+            <p>线上语音咨询中，我会围绕孩子情况逐项解释：为什么这个区间值得看，为什么这个专业需要谨慎，为什么某些志愿应该放在更稳的位置。</p>
+            <ul class="gaokao-owner-list">
+              <li>我负责一对一语音沟通</li>
+              <li>我负责方案核心判断与解释</li>
+              <li>我负责把家庭分歧拆成可讨论的问题</li>
+            </ul>
+          </article>
+          <div class="gaokao-support-grid">
+            <article class="gaokao-card gaokao-support-card">
+              <span class="gaokao-icon">前</span>
+              <div><h3>咨询前资料整理</h3><p>整理考生省份、选科、分数位次、专业倾向和家庭关注点，让语音沟通不从零开始。</p></div>
+            </article>
+            <article class="gaokao-card gaokao-support-card">
+              <span class="gaokao-icon">核</span>
+              <div><h3>咨询中规则核对</h3><p>围绕公开录取数据、招生章程、专业组、调剂、单科和体检限制做辅助核查。</p></div>
+            </article>
+            <article class="gaokao-card gaokao-support-card">
+              <span class="gaokao-icon">后</span>
+              <div><h3>咨询后复盘支持</h3><p>协助整理表格清单、文字结论和后续核对事项，让家长能继续执行。</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gaokao-delivery" class="gaokao-section gaokao-section-warm">
+      <div class="gaokao-container">
+        <div class="gaokao-section-head">
+          <p class="gaokao-eyebrow">服务结束后你会拿到什么</p>
+          <h2 class="gaokao-section-title">家长拿到的不只是一段建议，而是一套可以执行的填报材料。</h2>
+          <p class="gaokao-section-lead">这部分是服务的核心确定感：咨询结束后，家长可以对照报告、指南、表格和文字结论继续核对，而不是凭记忆填报。</p>
+        </div>
+        <div class="gaokao-grid gaokao-grid-3">
+          <article class="gaokao-card gaokao-delivery-card">
+            <h3>报考指导报告</h3>
+            <p>总结孩子的分数位次、选择区间、主要机会、风险重点和建议方向。</p>
+            <span class="gaokao-delivery-meta">用于整体复盘</span>
+          </article>
+          <article class="gaokao-card gaokao-delivery-card">
+            <h3>报考指南</h3>
+            <p>围绕所在省份规则、批次、专业组和填报注意点，帮助家长看懂关键限制。</p>
+            <span class="gaokao-delivery-meta">用于理解规则</span>
+          </article>
+          <article class="gaokao-card gaokao-delivery-card">
+            <h3>志愿填报表格清单</h3>
+            <p>整理院校、专业、梯度、风险点和后续核对事项，方便家长逐项确认。</p>
+            <span class="gaokao-delivery-meta">用于落地执行</span>
+          </article>
+          <article class="gaokao-card gaokao-delivery-card">
+            <h3>文字结论</h3>
+            <p>把语音咨询中的核心判断沉淀成文字，方便家长和孩子反复讨论。</p>
+            <span class="gaokao-delivery-meta">用于家庭沟通</span>
+          </article>
+          <article class="gaokao-card gaokao-delivery-card">
+            <h3>一对一语音指导</h3>
+            <p>通过线上会议语音逐项解释选择依据、风险、取舍和后续动作。</p>
+            <span class="gaokao-delivery-meta">用于当面讲清楚</span>
+          </article>
+          <article class="gaokao-card gaokao-delivery-card">
+            <h3>语音后复盘</h3>
+            <p>围绕关键问题做回顾，确认家长是否理解方案逻辑和下一步核对重点。</p>
+            <span class="gaokao-delivery-meta">用于最后确认</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gaokao-process" class="gaokao-section">
+      <div class="gaokao-container">
+        <div class="gaokao-section-head">
+          <p class="gaokao-eyebrow">线上服务流程</p>
+          <h2 class="gaokao-section-title">不见面、不视频，也可以把流程做清楚。</h2>
+          <p class="gaokao-section-lead">服务以线上会议语音为主，家长不需要额外奔波。关键是提前收集资料、语音中讲清判断、语音后留下可执行材料。</p>
+        </div>
+        <div class="gaokao-process-grid">
+          <article class="gaokao-card gaokao-step-card"><h3>预约沟通</h3><p>留下联系方式、考生省份和当前最担心的问题，先确认是否适合咨询。</p></article>
+          <article class="gaokao-card gaokao-step-card"><h3>资料收集</h3><p>整理分数或预估位次、选科、意向城市、专业倾向和家庭偏好。</p></article>
+          <article class="gaokao-card gaokao-step-card"><h3>团队预整理</h3><p>协助梳理公开数据、招生章程、规则限制和需要重点核查的问题。</p></article>
+          <article class="gaokao-card gaokao-step-card"><h3>语音指导</h3><p>由我进行线上会议语音沟通，逐项解释方案依据、风险和家庭取舍。</p></article>
+          <article class="gaokao-card gaokao-step-card"><h3>材料复盘</h3><p>形成报告、指南、表格清单和文字结论，帮助家长进入执行阶段。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gaokao-region" class="gaokao-section-tight">
+      <div class="gaokao-container gaokao-region-panel">
+        <div>
+          <p class="gaokao-eyebrow">服务地区</p>
+          <h2>全国线上服务，重点深耕云贵川家庭。</h2>
+          <p>服务面向全国高考家庭。对于云南、四川、贵州等西南地区考生，会重点围绕本省规则、院校选择范围、批次设置和家长常见困惑进行梳理。</p>
+        </div>
+        <div class="gaokao-region-tags" aria-label="重点服务省份">
+          <div class="gaokao-region-tag">云南</div>
+          <div class="gaokao-region-tag">四川</div>
+          <div class="gaokao-region-tag">贵州</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gaokao-risk-test" class="gaokao-section gaokao-section-warm">
+      <div class="gaokao-container gaokao-quiz-layout">
+        <aside class="gaokao-card gaokao-quiz-intro">
+          <p class="gaokao-eyebrow">志愿准备自测</p>
+          <h2>先看看你家当前最需要核对什么。</h2>
+          <p>这不是娱乐测试，而是围绕位次、梯度、专业、规则和家庭沟通做一次初步排查。结果可以作为预约语音咨询前的讨论起点。</p>
+          <ul class="gaokao-check-list">
+            <li>不用先留联系方式，也能看到基础结果。</li>
+            <li>结果会提示更该优先梳理哪类问题。</li>
+            <li>可带着结果预约一对一语音解读。</li>
+          </ul>
+        </aside>
+
+        <div class="gaokao-card gaokao-quiz" data-gaokao-quiz>
+          <div data-gaokao-quiz-body>
+            <div class="gaokao-quiz-progress">
+              <span class="gaokao-quiz-step" data-gaokao-quiz-step>1 / 6</span>
+              <div class="gaokao-progress-track" aria-hidden="true"><span class="gaokao-progress-bar" data-gaokao-progress></span></div>
+            </div>
+            <h3 class="gaokao-quiz-question" data-gaokao-question></h3>
+            <div class="gaokao-quiz-options" data-gaokao-options></div>
+            <div class="gaokao-quiz-actions">
+              <button class="gaokao-btn gaokao-btn-secondary" type="button" data-gaokao-prev>上一题</button>
+              <button class="gaokao-btn gaokao-btn-primary" type="button" data-gaokao-next disabled>下一题</button>
+            </div>
+          </div>
+          <div class="gaokao-quiz-result" data-gaokao-result aria-live="polite">
+            <div class="gaokao-result-score" data-gaokao-result-score></div>
+            <h3 class="gaokao-result-title" data-gaokao-result-title></h3>
+            <p class="gaokao-result-text" data-gaokao-result-text></p>
+            <ul class="gaokao-result-focus" data-gaokao-result-focus></ul>
+            <div class="gaokao-result-actions">
+              <a class="gaokao-btn gaokao-btn-primary" href="#gaokao-contact" data-gaokao-scroll="#gaokao-contact">带着结果预约语音解读</a>
+              <button class="gaokao-btn gaokao-btn-secondary" type="button" data-gaokao-restart>重新测试</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gaokao-faq" class="gaokao-section">
+      <div class="gaokao-container">
+        <div class="gaokao-section-head">
+          <p class="gaokao-eyebrow">FAQ</p>
+          <h2 class="gaokao-section-title">先把家长最担心的问题讲清楚。</h2>
+          <p class="gaokao-section-lead">确定感也来自边界清晰：线上怎么做、团队怎么参与、服务后有什么、不承诺什么，都应该提前说清。</p>
+        </div>
+        <div class="gaokao-faq-list">
+          <article class="gaokao-card gaokao-faq-item is-open" data-gaokao-faq>
+            <button class="gaokao-faq-question" type="button" aria-expanded="true">线上语音咨询怎么进行？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>服务以线上会议语音为主。咨询前先收集孩子基本情况，咨询中围绕分数位次、院校梯度、专业方向、规则风险和家庭取舍逐项沟通，咨询后整理报告、指南、表格清单、文字结论和复盘重点。</p></div></div>
+          </article>
+          <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
+            <button class="gaokao-faq-question" type="button" aria-expanded="false">不见面、不视频，会不会影响判断？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>志愿填报判断主要依赖考生资料、省份规则、公开录取数据、招生章程和家庭偏好。只要资料充分，线上语音可以把判断过程讲清楚，也方便家长记录和复盘。</p></div></div>
+          </article>
+          <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
+            <button class="gaokao-faq-question" type="button" aria-expanded="false">团队会参与哪些环节？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>团队主要协助资料整理、公开数据查询、招生规则核对、表格清单整理和语音后复盘支持。核心判断、方案解释和家长沟通由我本人负责。</p></div></div>
+          </article>
+          <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
+            <button class="gaokao-faq-question" type="button" aria-expanded="false">服务结束后能拿到哪些材料？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>服务后会提供报考指导报告、报考指南、志愿填报表格清单、文字结论、一对一语音指导后的复盘重点，以及后续需要核对的事项。</p></div></div>
+          </article>
+          <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
+            <button class="gaokao-faq-question" type="button" aria-expanded="false">你能保证孩子被某所学校录取吗？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>不能，也不应该这样承诺。志愿填报受当年招生计划、考生分布、政策规则等多种因素影响。我的价值是帮助家庭理解规则、识别风险、形成更清晰、可执行的填报方案。</p></div></div>
+          </article>
+          <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
+            <button class="gaokao-faq-question" type="button" aria-expanded="false">全国都能咨询吗？云贵川有什么重点？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>服务面向全国高考家庭，重点服务云南、四川、贵州等西南地区。对于重点地区，会更集中围绕当地规则、常见填报困惑和院校选择范围进行分析。</p></div></div>
+          </article>
+          <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
+            <button class="gaokao-faq-question" type="button" aria-expanded="false">咨询前需要准备什么？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>建议准备考生省份、选科、分数或预估位次、意向城市、专业倾向、家庭最担心的问题。如果暂时不完整，也可以先预约沟通，我们会提醒你补充关键资料。</p></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gaokao-contact" class="gaokao-section gaokao-section-tight">
+      <div class="gaokao-container gaokao-contact-layout">
+        <aside class="gaokao-card gaokao-contact-copy">
+          <h2>先留下孩子的基本情况，我们再确认语音咨询重点。</h2>
+          <p>提交后建议先围绕省份、分数位次、选科和当前最担心的问题做初步沟通，再安排线上会议语音指导。</p>
+          <ul class="gaokao-contact-points">
+            <li>服务面向全国，重点云南、四川、贵州</li>
+            <li>核心判断由我本人负责，团队协助复核</li>
+            <li>咨询后提供报告、指南、表格清单和复盘</li>
+          </ul>
+        </aside>
+
+        <form class="gaokao-card gaokao-form-card" data-gaokao-contact-form novalidate>
+          <div class="gaokao-form-grid">
+            <div class="gaokao-field">
+              <label class="gaokao-label" for="gaokao-parent-name">家长称呼</label>
+              <input class="gaokao-input" id="gaokao-parent-name" name="parentName" type="text" autocomplete="name" placeholder="例如：王女士" required>
+              <span class="gaokao-field-error" data-error-for="parentName"></span>
+            </div>
+            <div class="gaokao-field">
+              <label class="gaokao-label" for="gaokao-phone">联系电话</label>
+              <input class="gaokao-input" id="gaokao-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="用于确认语音咨询" required>
+              <span class="gaokao-field-error" data-error-for="phone"></span>
+            </div>
+            <div class="gaokao-field">
+              <label class="gaokao-label" for="gaokao-province">考生省份</label>
+              <input class="gaokao-input" id="gaokao-province" name="province" type="text" placeholder="例如：云南 / 四川 / 贵州" required>
+              <span class="gaokao-field-error" data-error-for="province"></span>
+            </div>
+            <div class="gaokao-field">
+              <label class="gaokao-label" for="gaokao-score-rank">分数或位次</label>
+              <input class="gaokao-input" id="gaokao-score-rank" name="scoreRank" type="text" placeholder="可填写预估或已出结果">
+              <span class="gaokao-field-error" data-error-for="scoreRank"></span>
+            </div>
+            <div class="gaokao-field">
+              <label class="gaokao-label" for="gaokao-subjects">选科 / 科类</label>
+              <input class="gaokao-input" id="gaokao-subjects" name="subjects" type="text" placeholder="例如：物化生 / 文科">
+              <span class="gaokao-field-error" data-error-for="subjects"></span>
+            </div>
+            <div class="gaokao-field">
+              <label class="gaokao-label" for="gaokao-time">希望咨询时间</label>
+              <input class="gaokao-input" id="gaokao-time" name="time" type="text" placeholder="例如：今晚 / 周末">
+              <span class="gaokao-field-error" data-error-for="time"></span>
+            </div>
+            <div class="gaokao-field gaokao-field-full">
+              <label class="gaokao-label" for="gaokao-concern">目前最担心的问题</label>
+              <select class="gaokao-select" id="gaokao-concern" name="concern" required>
+                <option value="">请选择一个重点</option>
+                <option value="risk">担心滑档、退档或梯度不稳</option>
+                <option value="major">不知道专业怎么选</option>
+                <option value="rules">看不懂本省规则和专业组</option>
+                <option value="family">家长和孩子意见不统一</option>
+                <option value="delivery">想知道咨询后能拿到什么材料</option>
+              </select>
+              <span class="gaokao-field-error" data-error-for="concern"></span>
+            </div>
+            <div class="gaokao-field gaokao-field-full">
+              <label class="gaokao-label" for="gaokao-message">补充说明</label>
+              <textarea class="gaokao-textarea" id="gaokao-message" name="message" placeholder="可以简单写下孩子意向城市、专业偏好、家庭分歧或已经查到的目标学校。"></textarea>
+              <span class="gaokao-field-error" data-error-for="message"></span>
+            </div>
+          </div>
+          <p class="gaokao-privacy-note">信息仅用于志愿填报语音咨询沟通。提交后会先确认孩子基本情况和咨询重点，再安排线上会议语音时间。</p>
+          <div class="gaokao-form-actions">
+            <button class="gaokao-btn gaokao-btn-primary" type="submit">提交信息，预约语音咨询</button>
+            <span class="gaokao-form-message" data-gaokao-form-message aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="gaokao-footer" class="gaokao-footer">
+    <div class="gaokao-container">
+      <div class="gaokao-footer-inner">
+        <div>
+          <h2>高考志愿填报线上语音指导</h2>
+          <p>主顾问负责核心判断，团队协助资料整理、规则核对和方案复盘。</p>
+        </div>
+        <nav class="gaokao-footer-links" aria-label="页脚导航">
+          <a href="#gaokao-method" data-gaokao-scroll="#gaokao-method">判断方法</a>
+          <a href="#gaokao-team" data-gaokao-scroll="#gaokao-team">团队支持</a>
+          <a href="#gaokao-delivery" data-gaokao-scroll="#gaokao-delivery">服务交付</a>
+          <a href="#gaokao-contact" data-gaokao-scroll="#gaokao-contact">预约咨询</a>
+        </nav>
+      </div>
+      <p class="gaokao-disclaimer">免责声明：本网站提供的志愿填报咨询建议，基于公开招生信息、历史录取数据、政策规则和家庭提供资料进行分析，不构成任何录取结果保证。正式填报前，请以各省教育考试院、院校招生章程和官方填报系统信息为准。</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const gaokaoQuestions = [
+        {
+          question: "你是否已经清楚孩子在本省的位次，以及它和往年录取数据的对应关系？",
+          options: [
+            { label: "A", text: "比较清楚，已按位次查过院校区间", score: 0 },
+            { label: "B", text: "知道位次，但还不会判断区间", score: 1 },
+            { label: "C", text: "只看分数，不太懂位次怎么用", score: 2 }
+          ]
+        },
+        {
+          question: "目前的志愿思路是否已经形成冲、稳、保梯度？",
+          options: [
+            { label: "A", text: "已有初步梯度，并知道每档作用", score: 0 },
+            { label: "B", text: "有一些目标学校，但梯度不清楚", score: 1 },
+            { label: "C", text: "还没有系统排序，主要靠感觉", score: 2 }
+          ]
+        },
+        {
+          question: "对专业选择，你们现在更接近哪种状态？",
+          options: [
+            { label: "A", text: "已结合兴趣、学科优势和未来方向筛过", score: 0 },
+            { label: "B", text: "有几个热门或喜欢的方向，但了解不深", score: 1 },
+            { label: "C", text: "基本不知道专业差异，只看名字和热度", score: 2 }
+          ]
+        },
+        {
+          question: "对录取规则和限制条件，你们是否做过核对？",
+          options: [
+            { label: "A", text: "已关注专业组、调剂、单科、体检等要求", score: 0 },
+            { label: "B", text: "看过一部分，但不确定有没有遗漏", score: 1 },
+            { label: "C", text: "还没系统核对这些细节", score: 2 }
+          ]
+        },
+        {
+          question: "家长和孩子对学校、专业、城市的优先级是否一致？",
+          options: [
+            { label: "A", text: "基本一致，能围绕方案讨论", score: 0 },
+            { label: "B", text: "有分歧，但还能沟通", score: 1 },
+            { label: "C", text: "分歧明显，越聊越焦虑", score: 2 }
+          ]
+        },
+        {
+          question: "你们是否已经准备好填报所需的关键信息？",
+          options: [
+            { label: "A", text: "分数、位次、选科、目标城市、专业倾向都较完整", score: 0 },
+            { label: "B", text: "有一部分，还需要整理", score: 1 },
+            { label: "C", text: "比较零散，不知道从哪里开始", score: 2 }
+          ]
+        }
+      ];
+
+      const gaokaoResults = [
+        {
+          min: 0,
+          max: 3,
+          title: "准备较清晰型",
+          text: "你们已经具备一定的志愿准备基础。接下来更值得关注的是：方案梯度是否足够稳妥、专业限制是否核对完整、冲稳保排序是否能解释清楚。这个阶段的咨询重点，通常不是从零开始，而是帮助家庭复核风险、优化取舍。",
+          focus: ["复核冲稳保比例和排序依据", "核对专业组、调剂、单科和体检限制", "把家庭最终取舍写成可执行清单"]
+        },
+        {
+          min: 4,
+          max: 7,
+          title: "重点梳理型",
+          text: "你们已经开始准备，但仍有一些关键判断需要系统化。比如位次和院校区间如何对应、专业方向如何筛选、家庭优先级如何排序、哪些规则容易遗漏。这个阶段如果只靠零散信息，很容易越查越乱，建议做一次结构化梳理。",
+          focus: ["建立位次、院校和专业的共同判断框架", "明确学校、专业、城市的优先级", "把容易遗漏的录取规则逐项排查"]
+        },
+        {
+          min: 8,
+          max: 12,
+          title: "高风险待梳理型",
+          text: "当前准备可能还比较分散，志愿填报中的几个核心问题还没有被放到同一套框架里判断。建议优先梳理分数位次、院校梯度、专业倾向、录取规则和家庭分歧，先把风险看清楚，再讨论具体志愿方案。",
+          focus: ["先整理分数、位次、选科和省份规则", "尽快建立冲稳保梯度，而不是只列目标学校", "围绕专业倾向和家庭分歧做一次集中沟通"]
+        }
+      ];
+
+      function gaokaoInitSmoothScroll() {
+        document.querySelectorAll("[data-gaokao-scroll]").forEach((trigger) => {
+          trigger.addEventListener("click", (event) => {
+            const targetSelector = trigger.getAttribute("data-gaokao-scroll");
+            const target = targetSelector ? document.querySelector(targetSelector) : null;
+            if (!target) {
+              return;
+            }
+            event.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            gaokaoCloseMobileMenu();
+          });
+        });
+      }
+
+      function gaokaoInitMobileMenu() {
+        const toggle = document.querySelector("[data-gaokao-menu-toggle]");
+        const links = document.querySelector("[data-gaokao-nav-links]");
+        if (!toggle || !links) {
+          return;
+        }
+        toggle.addEventListener("click", () => {
+          const isOpen = links.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", String(isOpen));
+          toggle.setAttribute("aria-label", isOpen ? "关闭导航菜单" : "打开导航菜单");
+        });
+      }
+
+      function gaokaoCloseMobileMenu() {
+        const toggle = document.querySelector("[data-gaokao-menu-toggle]");
+        const links = document.querySelector("[data-gaokao-nav-links]");
+        if (!toggle || !links) {
+          return;
+        }
+        links.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "打开导航菜单");
+      }
+
+      function gaokaoInitFAQ() {
+        document.querySelectorAll("[data-gaokao-faq]").forEach((item) => {
+          const button = item.querySelector(".gaokao-faq-question");
+          if (!button) {
+            return;
+          }
+          button.addEventListener("click", () => {
+            const willOpen = !item.classList.contains("is-open");
+            item.classList.toggle("is-open", willOpen);
+            button.setAttribute("aria-expanded", String(willOpen));
+          });
+        });
+      }
+
+      function gaokaoInitRiskQuiz() {
+        const quiz = document.querySelector("[data-gaokao-quiz]");
+        if (!quiz) {
+          return;
+        }
+
+        const body = quiz.querySelector("[data-gaokao-quiz-body]");
+        const step = quiz.querySelector("[data-gaokao-quiz-step]");
+        const progress = quiz.querySelector("[data-gaokao-progress]");
+        const question = quiz.querySelector("[data-gaokao-question]");
+        const options = quiz.querySelector("[data-gaokao-options]");
+        const prev = quiz.querySelector("[data-gaokao-prev]");
+        const next = quiz.querySelector("[data-gaokao-next]");
+        const result = quiz.querySelector("[data-gaokao-result]");
+        const resultScore = quiz.querySelector("[data-gaokao-result-score]");
+        const resultTitle = quiz.querySelector("[data-gaokao-result-title]");
+        const resultText = quiz.querySelector("[data-gaokao-result-text]");
+        const resultFocus = quiz.querySelector("[data-gaokao-result-focus]");
+        const restart = quiz.querySelector("[data-gaokao-restart]");
+
+        let currentIndex = 0;
+        const answers = new Array(gaokaoQuestions.length).fill(null);
+
+        function renderQuestion() {
+          const currentQuestion = gaokaoQuestions[currentIndex];
+          body.style.display = "block";
+          result.classList.remove("is-visible");
+          step.textContent = `${currentIndex + 1} / ${gaokaoQuestions.length}`;
+          progress.style.width = `${((currentIndex + 1) / gaokaoQuestions.length) * 100}%`;
+          question.textContent = currentQuestion.question;
+          options.innerHTML = "";
+
+          currentQuestion.options.forEach((option, optionIndex) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "gaokao-quiz-option";
+            button.setAttribute("aria-pressed", String(answers[currentIndex] === optionIndex));
+            button.dataset.gaokaoOption = String(optionIndex);
+            button.innerHTML = `<span class="gaokao-option-letter">${option.label}</span><span class="gaokao-option-text">${option.text}</span>`;
+            button.addEventListener("click", () => {
+              answers[currentIndex] = optionIndex;
+              renderQuestion();
+            });
+            options.appendChild(button);
+          });
+
+          prev.disabled = currentIndex === 0;
+          next.disabled = answers[currentIndex] === null;
+          next.textContent = currentIndex === gaokaoQuestions.length - 1 ? "查看结果" : "下一题";
+        }
+
+        function getTotalScore() {
+          return answers.reduce((total, answerIndex, questionIndex) => {
+            if (answerIndex === null) {
+              return total;
+            }
+            return total + gaokaoQuestions[questionIndex].options[answerIndex].score;
+          }, 0);
+        }
+
+        function showResult() {
+          const score = getTotalScore();
+          const matchedResult = gaokaoResults.find((item) => score >= item.min && score <= item.max) || gaokaoResults[gaokaoResults.length - 1];
+          body.style.display = "none";
+          result.classList.add("is-visible");
+          resultScore.textContent = `自测得分：${score} / 12`;
+          resultTitle.textContent = matchedResult.title;
+          resultText.textContent = matchedResult.text;
+          resultFocus.innerHTML = "";
+          matchedResult.focus.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            resultFocus.appendChild(li);
+          });
+        }
+
+        prev.addEventListener("click", () => {
+          if (currentIndex > 0) {
+            currentIndex -= 1;
+            renderQuestion();
+          }
+        });
+
+        next.addEventListener("click", () => {
+          if (answers[currentIndex] === null) {
+            return;
+          }
+          if (currentIndex === gaokaoQuestions.length - 1) {
+            showResult();
+            return;
+          }
+          currentIndex += 1;
+          renderQuestion();
+        });
+
+        restart.addEventListener("click", () => {
+          currentIndex = 0;
+          answers.fill(null);
+          renderQuestion();
+        });
+
+        renderQuestion();
+      }
+
+      function gaokaoInitContactForm() {
+        const form = document.querySelector("[data-gaokao-contact-form]");
+        if (!form) {
+          return;
+        }
+
+        const message = form.querySelector("[data-gaokao-form-message]");
+        const fields = {
+          parentName: form.elements.parentName,
+          phone: form.elements.phone,
+          province: form.elements.province,
+          concern: form.elements.concern
+        };
+
+        function setError(name, text) {
+          const error = form.querySelector(`[data-error-for="${name}"]`);
+          if (error) {
+            error.textContent = text;
+          }
+        }
+
+        function clearErrors() {
+          form.querySelectorAll("[data-error-for]").forEach((error) => {
+            error.textContent = "";
+          });
+          if (message) {
+            message.textContent = "";
+          }
+        }
+
+        function validate() {
+          let isValid = true;
+          clearErrors();
+
+          if (!fields.parentName.value.trim()) {
+            setError("parentName", "请填写家长称呼。");
+            isValid = false;
+          }
+
+          const phoneValue = fields.phone.value.trim();
+          if (!phoneValue) {
+            setError("phone", "请填写联系电话。");
+            isValid = false;
+          } else if (!/^1[3-9]\d{9}$/.test(phoneValue)) {
+            setError("phone", "请填写 11 位中国大陆手机号。");
+            isValid = false;
+          }
+
+          if (!fields.province.value.trim()) {
+            setError("province", "请填写考生所在省份。");
+            isValid = false;
+          }
+
+          if (!fields.concern.value) {
+            setError("concern", "请选择目前最担心的问题。");
+            isValid = false;
+          }
+
+          return isValid;
+        }
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (!validate()) {
+            if (message) {
+              message.textContent = "请先补充必要信息，我们再继续预约。";
+            }
+            return;
+          }
+
+          if (message) {
+            message.textContent = "信息已完成校验。我们会根据孩子情况确认语音咨询重点。";
+          }
+          form.reset();
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        gaokaoInitSmoothScroll();
+        gaokaoInitMobileMenu();
+        gaokaoInitFAQ();
+        gaokaoInitRiskQuiz();
+        gaokaoInitContactForm();
+      });
+    })();
+  </script>
+</body>
+</html>
