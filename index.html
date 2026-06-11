@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>高考志愿填报线上语音指导</title>
-  <meta name="description" content="面向全国高考家庭的线上语音志愿填报指导，重点服务云南、四川、贵州家庭。由主顾问负责核心判断，团队协助资料、规则和方案复核。">
+  <title>高考志愿填报专家团队线上语音指导</title>
+  <meta name="description" content="面向全国高考家庭的线上语音志愿填报指导。专家团队从业 8 年、累计服务 4000+ 家庭，提供核心服务与高频跟踪服务。核心判断由团队统筹负责，不满意可全额退款。">
   <style>
     :root {
       --gaokao-ink: #1f2933;
@@ -489,6 +489,39 @@
       font-weight: 800;
     }
 
+    .gaokao-hero-price {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px 18px;
+      max-width: 720px;
+      margin-top: 26px;
+      padding: 18px;
+      background: #fff;
+      border: 1px solid var(--gaokao-line-strong);
+      border-left: 4px solid var(--gaokao-accent);
+      border-radius: var(--gaokao-radius);
+      box-shadow: var(--gaokao-shadow-soft);
+    }
+
+    .gaokao-hero-price strong {
+      color: var(--gaokao-title);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .gaokao-hero-price span {
+      color: var(--gaokao-muted);
+      line-height: 1.7;
+    }
+
+    .gaokao-hero-boundary {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: var(--gaokao-primary);
+      font-weight: 800;
+      line-height: 1.75;
+    }
+
     .gaokao-certainty {
       padding: 18px 0 74px;
     }
@@ -670,6 +703,198 @@
       font-weight: 900;
     }
 
+    .gaokao-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .gaokao-price-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 360px;
+      padding: 26px;
+    }
+
+    .gaokao-price-card.is-featured {
+      border-color: rgba(184, 135, 70, 0.52);
+      border-top: 4px solid var(--gaokao-accent);
+      box-shadow: var(--gaokao-shadow);
+    }
+
+    .gaokao-price-label {
+      color: var(--gaokao-accent);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .gaokao-price {
+      margin: 12px 0 0;
+      color: var(--gaokao-primary);
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.12;
+      font-weight: 900;
+    }
+
+    .gaokao-price small {
+      color: var(--gaokao-muted);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .gaokao-price-list,
+    .gaokao-boundary-list {
+      display: grid;
+      gap: 10px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .gaokao-price-list li,
+    .gaokao-boundary-list li {
+      display: flex;
+      gap: 10px;
+      color: var(--gaokao-muted);
+      line-height: 1.68;
+    }
+
+    .gaokao-price-list li::before,
+    .gaokao-boundary-list li::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 7px;
+      height: 7px;
+      margin-top: 10px;
+      background: var(--gaokao-accent);
+      border-radius: 999px;
+    }
+
+    .gaokao-price-fit {
+      margin-top: auto;
+      padding-top: 18px;
+      color: var(--gaokao-title);
+      font-weight: 900;
+      line-height: 1.6;
+    }
+
+    .gaokao-boundary-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 26px;
+      align-items: start;
+      margin-top: 26px;
+      padding: 28px;
+      background: var(--gaokao-warm);
+      border: 1px solid rgba(184, 135, 70, 0.22);
+      border-radius: var(--gaokao-radius);
+    }
+
+    .gaokao-boundary-panel h3 {
+      margin: 0;
+      color: var(--gaokao-title);
+      font-size: 26px;
+      line-height: 1.28;
+    }
+
+    .gaokao-boundary-panel p {
+      margin: 12px 0 0;
+      color: var(--gaokao-muted);
+    }
+
+    .gaokao-pledge {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      margin-top: 26px;
+      padding: 30px 34px;
+      background: linear-gradient(180deg, #ffffff, #fbf7ef);
+      border: 1px solid rgba(184, 135, 70, 0.3);
+      border-left: 4px solid #b0211a;
+      border-radius: var(--gaokao-radius);
+      box-shadow: var(--gaokao-shadow-soft);
+    }
+
+    .gaokao-pledge-eyebrow {
+      display: inline-flex;
+      color: #b0211a;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .gaokao-pledge h3 {
+      margin: 12px 0 0;
+      color: var(--gaokao-title);
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.3;
+    }
+
+    .gaokao-pledge-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .gaokao-pledge-list li {
+      display: flex;
+      gap: 10px;
+      color: var(--gaokao-muted);
+      line-height: 1.68;
+    }
+
+    .gaokao-pledge-list li::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 7px;
+      height: 7px;
+      margin-top: 10px;
+      background: #b0211a;
+      border-radius: 999px;
+    }
+
+    .gaokao-pledge-list strong {
+      color: #b0211a;
+    }
+
+    .gaokao-seal {
+      display: grid;
+      place-items: center;
+      width: 158px;
+      height: 158px;
+      color: #b0211a;
+      border: 3px solid #b0211a;
+      border-radius: 50%;
+      text-align: center;
+      transform: rotate(-11deg);
+      box-shadow: inset 0 0 0 5px rgba(176, 33, 26, 0.16);
+      opacity: 0.92;
+    }
+
+    .gaokao-seal-top {
+      max-width: 122px;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      line-height: 1.25;
+    }
+
+    .gaokao-seal-star {
+      margin: 2px 0;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .gaokao-seal-bottom {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
     .gaokao-process-grid {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -735,6 +960,87 @@
       text-align: center;
       font-size: 20px;
       font-weight: 900;
+    }
+
+    .gaokao-channel-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .gaokao-channel-copy {
+      padding: 28px;
+      color: #fff;
+      background: var(--gaokao-primary);
+      border: 0;
+      box-shadow: var(--gaokao-shadow);
+    }
+
+    .gaokao-channel-copy h2 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(28px, 3.8vw, 42px);
+      line-height: 1.2;
+    }
+
+    .gaokao-channel-copy p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .gaokao-channel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .gaokao-channel-card {
+      min-height: 244px;
+      padding: 22px;
+    }
+
+    .gaokao-channel-card h3 {
+      font-size: 20px;
+    }
+
+    .gaokao-channel-meta {
+      display: inline-flex;
+      margin-top: 16px;
+      padding: 7px 10px;
+      color: var(--gaokao-primary);
+      background: #eef3f7;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .gaokao-qr-slot {
+      display: grid;
+      place-items: center;
+      gap: 9px;
+      aspect-ratio: 1;
+      width: min(158px, 100%);
+      margin-top: 16px;
+      padding: 10px;
+      color: var(--gaokao-muted);
+      background: #fff;
+      border: 1px solid var(--gaokao-line-strong);
+      border-radius: var(--gaokao-radius);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1.45;
+    }
+
+    .gaokao-qr-slot img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .gaokao-qr-slot span {
+      display: block;
     }
 
     .gaokao-quiz-layout,
@@ -1028,6 +1334,34 @@
       color: rgba(255, 255, 255, 0.82);
     }
 
+    .gaokao-wechat-block {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: center;
+      margin-top: 24px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--gaokao-radius);
+    }
+
+    .gaokao-wechat-block .gaokao-qr-slot {
+      width: 128px;
+      margin-top: 0;
+    }
+
+    .gaokao-wechat-id {
+      display: inline-flex;
+      margin-top: 8px;
+      padding: 7px 10px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
     .gaokao-form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1144,6 +1478,9 @@
       .gaokao-split,
       .gaokao-method-shell,
       .gaokao-team-layout,
+      .gaokao-pricing-grid,
+      .gaokao-boundary-panel,
+      .gaokao-channel-layout,
       .gaokao-quiz-layout,
       .gaokao-contact-layout,
       .gaokao-region-panel {
@@ -1157,7 +1494,8 @@
 
       .gaokao-grid-4,
       .gaokao-grid-3,
-      .gaokao-process-grid {
+      .gaokao-process-grid,
+      .gaokao-channel-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1224,6 +1562,7 @@
       .gaokao-section-title,
       .gaokao-sticky-copy h2,
       .gaokao-region-panel h2,
+      .gaokao-channel-copy h2,
       .gaokao-quiz-intro h2,
       .gaokao-contact-copy h2,
       .gaokao-doc-label h2,
@@ -1270,6 +1609,8 @@
       .gaokao-quiz,
       .gaokao-form-card,
       .gaokao-contact-copy,
+      .gaokao-channel-copy,
+      .gaokao-price-card,
       .gaokao-sticky-copy,
       .gaokao-owner-card,
       .gaokao-region-panel {
@@ -1280,15 +1621,30 @@
       .gaokao-grid-3,
       .gaokao-grid-4,
       .gaokao-process-grid,
+      .gaokao-pricing-grid,
+      .gaokao-channel-grid,
       .gaokao-form-grid,
       .gaokao-footer-inner,
+      .gaokao-pledge,
       .gaokao-region-tags {
+        grid-template-columns: 1fr;
+      }
+
+      .gaokao-seal {
+        margin: 4px auto 0;
+      }
+
+      .gaokao-hero-price {
         grid-template-columns: 1fr;
       }
 
       .gaokao-method-step,
       .gaokao-support-card,
       .gaokao-doc-row {
+        grid-template-columns: 1fr;
+      }
+
+      .gaokao-wechat-block {
         grid-template-columns: 1fr;
       }
 
@@ -1319,17 +1675,19 @@
     <div class="gaokao-container gaokao-nav-inner">
       <a class="gaokao-logo" href="#gaokao-hero" data-gaokao-scroll="#gaokao-hero" aria-label="回到首页">
         <span class="gaokao-logo-mark">志</span>
-        <span>志愿填报线上指导</span>
+        <span>志愿填报专家团队</span>
       </a>
       <nav class="gaokao-nav-links" data-gaokao-nav-links aria-label="主导航">
         <a href="#gaokao-certainty" data-gaokao-scroll="#gaokao-certainty">为什么可信</a>
+        <a href="#gaokao-pricing" data-gaokao-scroll="#gaokao-pricing">服务价格</a>
         <a href="#gaokao-method" data-gaokao-scroll="#gaokao-method">判断方法</a>
         <a href="#gaokao-team" data-gaokao-scroll="#gaokao-team">团队支持</a>
         <a href="#gaokao-delivery" data-gaokao-scroll="#gaokao-delivery">服务交付</a>
+        <a href="#gaokao-channels" data-gaokao-scroll="#gaokao-channels">联系入口</a>
         <a href="#gaokao-faq" data-gaokao-scroll="#gaokao-faq">常见问题</a>
       </nav>
       <div class="gaokao-nav-actions">
-        <a class="gaokao-btn gaokao-btn-primary" href="#gaokao-contact" data-gaokao-scroll="#gaokao-contact">预约语音咨询</a>
+        <a class="gaokao-btn gaokao-btn-primary" href="#gaokao-contact" data-gaokao-scroll="#gaokao-contact">预约团队语音</a>
         <button class="gaokao-mobile-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" data-gaokao-menu-toggle>
           <span></span>
         </button>
@@ -1341,21 +1699,29 @@
     <section id="gaokao-hero" class="gaokao-hero">
       <div class="gaokao-container gaokao-hero-grid">
         <div>
-          <p class="gaokao-eyebrow">全国线上语音咨询，重点服务云南、四川、贵州</p>
+          <p class="gaokao-eyebrow">高考志愿填报专家团队 · 从业 8 年 · 累计服务 4000+ 家庭 · 全国线上服务</p>
           <h1>
-            <span class="gaokao-title-line">我帮高考家庭，</span>
-            <span class="gaokao-title-line">把孩子的志愿填报</span>
-            <span class="gaokao-title-line">落到<span class="gaokao-title-accent">可执行方案</span>。</span>
+            <span class="gaokao-title-line">别让一次志愿填报，</span>
+            <span class="gaokao-title-line">浪费孩子三年的分数。</span>
+            <span class="gaokao-title-line">团队把方案<span class="gaokao-title-accent">落地</span>。</span>
           </h1>
-          <p class="gaokao-hero-lead">线上会议语音沟通，我负责核心判断，团队协助资料整理、规则核对和方案复盘。咨询后留下报告、清单和文字结论，方便家长反复核对。</p>
+          <p class="gaokao-hero-lead">线上会议语音，由专家团队一对一讲清核心判断，不转客服、不甩话术。8 年实战、4000+ 家庭沉淀出的判断框架，覆盖全国不同省份的规则差异、院校梯度和专业取舍。你现在担心的坑，大概率我们已经陪很多家庭踩过、避过。咨询后留下报告、清单和文字结论，能复盘，也能核对。</p>
+          <div class="gaokao-hero-price" aria-label="服务价格概览">
+            <strong>核心服务 · ¥1980</strong>
+            <span>从出分到提交，团队一对一带完整程。含报告、指南、表格清单、文字结论和复盘，适合大多数需要完整方案的家庭。</span>
+            <strong>高频跟踪服务 · ¥4980</strong>
+            <span>适合时间紧、风险敏感、需要多轮复核的家庭，在关键节点提供更高频的跟进和方案调整支持。</span>
+          </div>
+          <p class="gaokao-hero-boundary">团队不喊“保上某校”那种空话——那是违法话术。但我们敢承诺：首次语音沟通后你若觉得不值，全额退款。8 年、4000+ 家庭的底气，就摆在这里。</p>
           <div class="gaokao-hero-actions">
-            <a class="gaokao-btn gaokao-btn-primary" href="#gaokao-contact" data-gaokao-scroll="#gaokao-contact">预约线上语音咨询</a>
-            <a class="gaokao-btn gaokao-btn-secondary" href="#gaokao-delivery" data-gaokao-scroll="#gaokao-delivery">查看服务后能拿到什么</a>
+            <a class="gaokao-btn gaokao-btn-primary" href="#gaokao-contact" data-gaokao-scroll="#gaokao-contact">提交信息，当天确认咨询时间</a>
+            <a class="gaokao-btn gaokao-btn-secondary" href="#gaokao-pricing" data-gaokao-scroll="#gaokao-pricing">查看价格与包含内容</a>
           </div>
           <div class="gaokao-hero-badges" aria-label="服务确定感">
-            <span class="gaokao-badge">我本人负责核心判断</span>
-            <span class="gaokao-badge">团队协助资料与规则复核</span>
-            <span class="gaokao-badge">咨询后提供报告、清单与复盘</span>
+            <span class="gaokao-badge">从业 8 年 · 服务 4000+ 家庭</span>
+            <span class="gaokao-badge">专家团队一对一</span>
+            <span class="gaokao-badge">不满意可全额退款</span>
+            <span class="gaokao-badge">咨询后留报告 + 复盘</span>
           </div>
         </div>
 
@@ -1381,7 +1747,7 @@
               <div><strong>文字结论与语音后复盘</strong><p>把语音中的核心判断留下来，方便家长和孩子反复确认。</p></div>
             </div>
           </div>
-          <p class="gaokao-doc-note">确定感来自清楚的判断过程和明确交付，不来自任何录取承诺。</p>
+          <p class="gaokao-doc-note">不是口头说一遍，而是把依据和材料都留给家长。</p>
         </aside>
       </div>
     </section>
@@ -1389,30 +1755,98 @@
     <section id="gaokao-certainty" class="gaokao-certainty">
       <div class="gaokao-container gaokao-grid gaokao-grid-4">
         <article class="gaokao-card gaokao-proof-card">
-          <strong>责任确定</strong>
-          <span>核心判断和家长语音沟通由我本人负责，不把关键决策交给固定话术或客服转接。</span>
+          <strong>找得到团队</strong>
+          <span>核心判断和家长语音沟通由专家团队统筹负责，全程一个微信、团队响应，不把关键决策交给固定话术或客服转接。</span>
         </article>
         <article class="gaokao-card gaokao-proof-card">
-          <strong>方法确定</strong>
-          <span>按位次、梯度、专业、规则和家庭取舍逐项拆解，不凭感觉推荐学校。</span>
+          <strong>有方法，不拍脑袋</strong>
+          <span>8 年、4000+ 家庭打磨出的判断框架，按位次、梯度、专业、规则和家庭取舍逐项拆解，不凭感觉推荐学校。</span>
         </article>
         <article class="gaokao-card gaokao-proof-card">
-          <strong>支持确定</strong>
+          <strong>有依据，不画饼</strong>
+          <span>判断只基于公开招生信息、历史录取数据、招生章程和家庭提供资料，不使用不可验证的承诺话术。</span>
+        </article>
+        <article class="gaokao-card gaokao-proof-card">
+          <strong>有团队，不掉链子</strong>
           <span>团队协助做资料整理、招生章程核对、表格清单和复盘支持。</span>
         </article>
-        <article class="gaokao-card gaokao-proof-card">
-          <strong>交付确定</strong>
-          <span>咨询后有报告、报考指南、表格清单、文字结论和语音后复盘。</span>
-        </article>
+      </div>
+    </section>
+
+    <section id="gaokao-pricing" class="gaokao-section gaokao-section-warm">
+      <div class="gaokao-container">
+        <div class="gaokao-section-head">
+          <p class="gaokao-eyebrow">服务价格</p>
+          <h2 class="gaokao-section-title">你买的不是一次聊天，是一套能落地的填报方案。</h2>
+          <p class="gaokao-section-lead">这里的价格对应的是资料核对、判断解释、方案整理和复盘交付，不是一次单纯聊天费用。下面两类服务对应不同跟进深度，家长可以先判断自己现在需要哪一种。</p>
+        </div>
+        <div class="gaokao-pricing-grid">
+          <article class="gaokao-card gaokao-price-card is-featured">
+            <span class="gaokao-price-label">核心服务</span>
+            <h3>全程志愿填报指导</h3>
+            <div class="gaokao-price">¥1980 <small>/ 家庭</small></div>
+            <ul class="gaokao-price-list">
+              <li>专家团队一对一线上语音指导</li>
+              <li>团队协助资料整理和规则复核</li>
+              <li>报告、指南、表格清单、文字结论</li>
+              <li>语音后复盘和后续核对事项</li>
+              <li>首次语音沟通后不满意，可全额退款</li>
+              <li>公开定价 1980，特殊复杂情况会先沟通再确认</li>
+            </ul>
+            <div class="gaokao-price-fit">适合：已经进入正式填报准备，需要完整方案的家庭。</div>
+          </article>
+          <article class="gaokao-card gaokao-price-card">
+            <span class="gaokao-price-label">高频跟踪服务</span>
+            <h3>全程高频跟踪</h3>
+            <div class="gaokao-price">¥4980 <small>/ 家庭</small></div>
+            <ul class="gaokao-price-list">
+              <li>从出分到正式提交志愿前跟踪服务</li>
+              <li>关键节点优先语音沟通，响应顺序优先确认</li>
+              <li>院校、专业和规则变化重点复核</li>
+              <li>包含多次方案复核，服务截止点为正式提交前</li>
+              <li>公开定价 4980，特殊复杂情况会先沟通再确认</li>
+              <li>不包含代替填报、录取承诺和提交后的持续陪跑</li>
+            </ul>
+            <div class="gaokao-price-fit">适合：时间紧、风险敏感、需要更高频陪跑的家庭。</div>
+          </article>
+        </div>
+        <div class="gaokao-boundary-panel">
+          <div>
+            <h3>这三件事，团队明确不做</h3>
+            <p>边界清楚，家长才知道这不是销售话术，而是一次基于公开信息和家庭资料的判断服务。</p>
+          </div>
+          <ul class="gaokao-boundary-list">
+            <li>不承诺录取结果，不说“保进某校”。</li>
+            <li>不替孩子做人生决定，只帮助家庭把取舍讲清楚。</li>
+            <li>不制造焦虑，不用“再不报就晚了”催促成交。</li>
+          </ul>
+        </div>
+        <div class="gaokao-pledge">
+          <div>
+            <span class="gaokao-pledge-eyebrow">专家团队 · 服务承诺</span>
+            <h3>敢盖章的承诺，才配得上你这一单。</h3>
+            <ul class="gaokao-pledge-list">
+              <li>核心判断由团队统筹把关，团队统一响应，全程不转客服、不甩话术。</li>
+              <li>所有结论留报告、留文字，可复盘、可核对，跑不掉。</li>
+              <li>信息仅用于本次咨询，志愿季结束 30 天内删除。</li>
+              <li><strong>首次语音沟通后你若觉得不值，全额退款。</strong></li>
+            </ul>
+          </div>
+          <div class="gaokao-seal" role="img" aria-label="专家团队服务承诺专用章">
+            <span class="gaokao-seal-top">专家团队志愿填报</span>
+            <span class="gaokao-seal-star">★</span>
+            <span class="gaokao-seal-bottom">服务承诺专用章</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="gaokao-method" class="gaokao-section gaokao-section-warm">
       <div class="gaokao-container gaokao-method-shell">
         <aside class="gaokao-sticky-copy">
-          <p class="gaokao-eyebrow">我的判断方法</p>
+          <p class="gaokao-eyebrow">团队的判断方法</p>
           <h2>家长要的不是更多信息，而是有人把信息变成判断。</h2>
-          <p>我会把孩子的分数位次、专业倾向、院校梯度、省份规则和家庭偏好放在同一套框架里看。这样家长知道每个选择的依据，也知道哪些风险需要提前核对。</p>
+          <p>我们会把孩子的分数位次、专业倾向、院校梯度、省份规则和家庭偏好放在同一套框架里看。这样家长知道每个选择的依据，也知道哪些风险需要提前核对。</p>
         </aside>
         <div class="gaokao-method-steps">
           <article class="gaokao-method-step">
@@ -1437,18 +1871,18 @@
     <section id="gaokao-team" class="gaokao-section">
       <div class="gaokao-container">
         <div class="gaokao-section-head">
-          <p class="gaokao-eyebrow">个人负责 + 团队支持</p>
-          <h2 class="gaokao-section-title">你和我语音沟通，背后也有团队把资料和规则核清楚。</h2>
-          <p class="gaokao-section-lead">团队不是替代我的判断，而是为我的判断提供资料、数据、规则和复盘支持。最终建议由我统一解释给家长。</p>
+          <p class="gaokao-eyebrow">专家团队协作</p>
+          <h2 class="gaokao-section-title">你和我们的专家团队语音沟通，背后也有完整协作把资料和规则核清楚。</h2>
+          <p class="gaokao-section-lead">团队不是替代核心判断，而是为判断提供资料、数据、规则和复盘支持。最终建议由团队统一解释给家长。</p>
         </div>
         <div class="gaokao-team-layout">
           <article class="gaokao-card gaokao-owner-card">
-            <h3>由我负责核心判断</h3>
-            <p>线上语音咨询中，我会围绕孩子情况逐项解释：为什么这个区间值得看，为什么这个专业需要谨慎，为什么某些志愿应该放在更稳的位置。</p>
+            <h3>团队统筹机制</h3>
+            <p>团队连续服务高考家庭 8 年，累计一对一服务 4000+ 家庭。不同省份的招生规则、专业组、调剂和单科限制，已经被沉淀成内部判断框架；资料整理、规则核对和复盘支持也形成了固定分工。线上语音里，核心判断由团队统筹把关，只基于公开规则、公开数据和你提供的资料，讲到家长能把结论原话复述给孩子听为止。</p>
             <ul class="gaokao-owner-list">
-              <li>我负责一对一语音沟通</li>
-              <li>我负责方案核心判断与解释</li>
-              <li>我负责把家庭分歧拆成可讨论的问题</li>
+              <li>8 年实战，4000+ 家庭的填报经验沉淀</li>
+              <li>核心判断由团队统筹把关，团队协同完成，不转客服、不甩话术</li>
+              <li>不满意可全额退款——敢承诺，是因为团队对判断有底气</li>
             </ul>
           </article>
           <div class="gaokao-support-grid">
@@ -1519,11 +1953,11 @@
           <p class="gaokao-section-lead">服务以线上会议语音为主，家长不需要额外奔波。关键是提前收集资料、语音中讲清判断、语音后留下可执行材料。</p>
         </div>
         <div class="gaokao-process-grid">
-          <article class="gaokao-card gaokao-step-card"><h3>预约沟通</h3><p>留下联系方式、考生省份和当前最担心的问题，先确认是否适合咨询。</p></article>
+          <article class="gaokao-card gaokao-step-card"><h3>预约沟通</h3><p>留下联系方式、考生省份和当前最担心的问题，当天先确认资料是否完整，再判断是否适合咨询。</p></article>
           <article class="gaokao-card gaokao-step-card"><h3>资料收集</h3><p>整理分数或预估位次、选科、意向城市、专业倾向和家庭偏好。</p></article>
           <article class="gaokao-card gaokao-step-card"><h3>团队预整理</h3><p>协助梳理公开数据、招生章程、规则限制和需要重点核查的问题。</p></article>
-          <article class="gaokao-card gaokao-step-card"><h3>语音指导</h3><p>由我进行线上会议语音沟通，逐项解释方案依据、风险和家庭取舍。</p></article>
-          <article class="gaokao-card gaokao-step-card"><h3>材料复盘</h3><p>形成报告、指南、表格清单和文字结论，帮助家长进入执行阶段。</p></article>
+          <article class="gaokao-card gaokao-step-card"><h3>语音指导</h3><p>由团队专家进行线上会议语音沟通，逐项解释方案依据、风险和家庭取舍，并确认适合的服务档位。</p></article>
+          <article class="gaokao-card gaokao-step-card"><h3>材料复盘</h3><p>形成报告、指南、表格清单和文字结论，帮助家长进入执行阶段；如有约定复核，再按对应服务继续跟进。</p></article>
         </div>
       </div>
     </section>
@@ -1532,13 +1966,43 @@
       <div class="gaokao-container gaokao-region-panel">
         <div>
           <p class="gaokao-eyebrow">服务地区</p>
-          <h2>全国线上服务，重点深耕云贵川家庭。</h2>
-          <p>服务面向全国高考家庭。对于云南、四川、贵州等西南地区考生，会重点围绕本省规则、院校选择范围、批次设置和家长常见困惑进行梳理。</p>
+          <h2>全国高考家庭，均可线上咨询。</h2>
+          <p>服务以线上语音为主，面向全国各省考生家庭。我们会按考生所在省份的规则、批次设置、专业限制和院校选择范围，逐项梳理并给出可执行方案。</p>
         </div>
-        <div class="gaokao-region-tags" aria-label="重点服务省份">
-          <div class="gaokao-region-tag">云南</div>
-          <div class="gaokao-region-tag">四川</div>
-          <div class="gaokao-region-tag">贵州</div>
+        <div class="gaokao-region-tags" aria-label="全国服务特点">
+          <div class="gaokao-region-tag">全国线上咨询</div>
+          <div class="gaokao-region-tag">按省份规则拆解</div>
+          <div class="gaokao-region-tag">统一交付与复盘</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gaokao-channels" class="gaokao-section gaokao-section-warm">
+      <div class="gaokao-container gaokao-channel-layout">
+        <aside class="gaokao-card gaokao-channel-copy">
+          <p class="gaokao-eyebrow">联系入口</p>
+          <h2>扫码加微信，先发孩子省份、分数位次和最担心的问题。</h2>
+          <p>如果来自小红书、家长群或朋友推荐，可以直接备注来源。添加微信后，当天会先确认资料是否完整、说明适合的服务档位，再安排语音时间。</p>
+        </aside>
+        <div class="gaokao-channel-grid">
+          <article class="gaokao-card gaokao-channel-card">
+            <h3>微信咨询</h3>
+            <p>扫码添加微信，或搜索微信号 <strong>W26556962</strong>。建议第一条消息写清考生省份、分数或位次、选科和当前最担心的问题；资料不完整也可以先发，我们会提示还缺什么。</p>
+            <div class="gaokao-qr-slot">
+              <img src="wechat-qr.jpg" alt="微信二维码，微信号 W26556962">
+              <span>微信号：W26556962</span>
+            </div>
+          </article>
+          <article class="gaokao-card gaokao-channel-card">
+            <h3>小红书私信</h3>
+            <p>适合从避坑内容、案例分析或政策解读进入咨询。页面自测可以先免费完成；如果需要结合孩子资料进一步判断，再预约核心服务或高频跟踪服务。</p>
+            <span class="gaokao-channel-meta">内容入口预留</span>
+          </article>
+          <article class="gaokao-card gaokao-channel-card">
+            <h3>电话确认</h3>
+            <p>提交表单后，当天会先确认孩子基本情况、咨询重点、适合的服务档位和时间安排。若信息不完整，会提醒补充关键资料。</p>
+            <span class="gaokao-channel-meta">当天确认时间</span>
+          </article>
         </div>
       </div>
     </section>
@@ -1548,11 +2012,11 @@
         <aside class="gaokao-card gaokao-quiz-intro">
           <p class="gaokao-eyebrow">志愿准备自测</p>
           <h2>先看看你家当前最需要核对什么。</h2>
-          <p>这不是娱乐测试，而是围绕位次、梯度、专业、规则和家庭沟通做一次初步排查。结果可以作为预约语音咨询前的讨论起点。</p>
+          <p>这不是娱乐测试，而是围绕位次、梯度、专业、规则和家庭沟通做一次初步排查。页面自测免费，结果可以作为预约语音咨询前的讨论起点。</p>
           <ul class="gaokao-check-list">
             <li>不用先留联系方式，也能看到基础结果。</li>
             <li>结果会提示更该优先梳理哪类问题。</li>
-            <li>可带着结果预约一对一语音解读。</li>
+            <li>如需团队结合孩子资料进一步判断，可带着结果预约核心服务或高频跟踪服务。</li>
           </ul>
         </aside>
 
@@ -1575,7 +2039,7 @@
             <p class="gaokao-result-text" data-gaokao-result-text></p>
             <ul class="gaokao-result-focus" data-gaokao-result-focus></ul>
             <div class="gaokao-result-actions">
-              <a class="gaokao-btn gaokao-btn-primary" href="#gaokao-contact" data-gaokao-scroll="#gaokao-contact">带着结果预约语音解读</a>
+              <a class="gaokao-btn gaokao-btn-primary" href="#gaokao-contact" data-gaokao-scroll="#gaokao-contact">带着结果预约咨询</a>
               <button class="gaokao-btn gaokao-btn-secondary" type="button" data-gaokao-restart>重新测试</button>
             </div>
           </div>
@@ -1601,19 +2065,31 @@
           </article>
           <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
             <button class="gaokao-faq-question" type="button" aria-expanded="false">团队会参与哪些环节？<span class="gaokao-faq-icon">+</span></button>
-            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>团队主要协助资料整理、公开数据查询、招生规则核对、表格清单整理和语音后复盘支持。核心判断、方案解释和家长沟通由我本人负责。</p></div></div>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>团队主要协助资料整理、公开数据查询、招生规则核对、表格清单整理和语音后复盘支持。团队可接触的信息以考生省份、分数位次、选科、目标方向和咨询记录为限；核心判断、方案解释和家长沟通由团队统筹把关。</p></div></div>
           </article>
           <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
             <button class="gaokao-faq-question" type="button" aria-expanded="false">服务结束后能拿到哪些材料？<span class="gaokao-faq-icon">+</span></button>
             <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>服务后会提供报考指导报告、报考指南、志愿填报表格清单、文字结论、一对一语音指导后的复盘重点，以及后续需要核对的事项。</p></div></div>
           </article>
           <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
-            <button class="gaokao-faq-question" type="button" aria-expanded="false">你能保证孩子被某所学校录取吗？<span class="gaokao-faq-icon">+</span></button>
-            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>不能，也不应该这样承诺。志愿填报受当年招生计划、考生分布、政策规则等多种因素影响。我的价值是帮助家庭理解规则、识别风险、形成更清晰、可执行的填报方案。</p></div></div>
+            <button class="gaokao-faq-question" type="button" aria-expanded="false">孩子不愿意参与咨询怎么办？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>可以先由家长整理孩子的分数位次、选科、专业倾向和主要分歧。咨询重点不是替孩子做决定，而是把学校、专业、城市和风险拆清楚，让家长更容易和孩子围绕事实沟通。</p></div></div>
           </article>
           <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
-            <button class="gaokao-faq-question" type="button" aria-expanded="false">全国都能咨询吗？云贵川有什么重点？<span class="gaokao-faq-icon">+</span></button>
-            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>服务面向全国高考家庭，重点服务云南、四川、贵州等西南地区。对于重点地区，会更集中围绕当地规则、常见填报困惑和院校选择范围进行分析。</p></div></div>
+            <button class="gaokao-faq-question" type="button" aria-expanded="false">怎么联系你最快？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>最快方式是添加微信 W26556962，或在本页提交表单。建议第一条消息写清考生省份、分数或位次、选科和当前最担心的问题，方便当天确认咨询重点、适合的服务档位和语音时间。</p></div></div>
+          </article>
+          <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
+            <button class="gaokao-faq-question" type="button" aria-expanded="false">不满意可以退款吗？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>可以。首次一对一语音沟通后，如果你认为判断对你家没有帮助、不值这个价，可以直接提出全额退款。从业 8 年、服务 4000+ 家庭，团队对自己的判断有底气，也愿意把风险担在自己这边——你几乎是零风险地试一次。</p></div></div>
+          </article>
+          <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
+            <button class="gaokao-faq-question" type="button" aria-expanded="false">你能保证孩子被某所学校录取吗？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>不能，也不应该这样承诺。志愿填报受当年招生计划、考生分布、政策规则等多种因素影响。团队的价值是帮助家庭理解规则、识别风险、形成更清晰、可执行的填报方案。</p></div></div>
+          </article>
+          <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
+            <button class="gaokao-faq-question" type="button" aria-expanded="false">全国都能咨询吗？<span class="gaokao-faq-icon">+</span></button>
+            <div class="gaokao-faq-answer"><div class="gaokao-faq-answer-inner"><p>可以。服务面向全国高考家庭，以线上语音为主。我们会根据考生所在省份的政策规则、批次设置、专业限制和院校范围进行针对性分析。</p></div></div>
           </article>
           <article class="gaokao-card gaokao-faq-item" data-gaokao-faq>
             <button class="gaokao-faq-question" type="button" aria-expanded="false">咨询前需要准备什么？<span class="gaokao-faq-icon">+</span></button>
@@ -1627,12 +2103,21 @@
       <div class="gaokao-container gaokao-contact-layout">
         <aside class="gaokao-card gaokao-contact-copy">
           <h2>先留下孩子的基本情况，我们再确认语音咨询重点。</h2>
-          <p>提交后建议先围绕省份、分数位次、选科和当前最担心的问题做初步沟通，再安排线上会议语音指导。</p>
+          <p>提交表单或加微信后，当天会先围绕省份、分数位次、选科和当前最担心的问题做初步沟通，确认资料是否完整、适合哪一档服务，再安排线上会议语音指导。</p>
           <ul class="gaokao-contact-points">
-            <li>服务面向全国，重点云南、四川、贵州</li>
-            <li>核心判断由我本人负责，团队协助复核</li>
+            <li>专家团队从业 8 年，累计服务 4000+ 家庭</li>
+            <li>核心判断由团队统筹把关，不满意可全额退款</li>
             <li>咨询后提供报告、指南、表格清单和复盘</li>
           </ul>
+          <div class="gaokao-wechat-block" aria-label="微信联系方式">
+            <div class="gaokao-qr-slot">
+              <img src="wechat-qr.jpg" alt="微信二维码，微信号 W26556962">
+            </div>
+            <div>
+              <p>也可以直接扫码添加微信。</p>
+              <span class="gaokao-wechat-id">微信号：W26556962</span>
+            </div>
+          </div>
         </aside>
 
         <form class="gaokao-card gaokao-form-card" data-gaokao-contact-form novalidate>
@@ -1649,7 +2134,7 @@
             </div>
             <div class="gaokao-field">
               <label class="gaokao-label" for="gaokao-province">考生省份</label>
-              <input class="gaokao-input" id="gaokao-province" name="province" type="text" placeholder="例如：云南 / 四川 / 贵州" required>
+              <input class="gaokao-input" id="gaokao-province" name="province" type="text" placeholder="例如：河北 / 江苏 / 广东" required>
               <span class="gaokao-field-error" data-error-for="province"></span>
             </div>
             <div class="gaokao-field">
@@ -1685,9 +2170,9 @@
               <span class="gaokao-field-error" data-error-for="message"></span>
             </div>
           </div>
-          <p class="gaokao-privacy-note">信息仅用于志愿填报语音咨询沟通。提交后会先确认孩子基本情况和咨询重点，再安排线上会议语音时间。</p>
+          <p class="gaokao-privacy-note">信息仅用于志愿填报语音咨询沟通。团队仅在资料整理、规则核对和复盘支持范围内接触必要信息，不对外共享；未继续服务的资料默认在当年志愿填报结束后 30 天内删除，继续服务的资料也可在沟通中提出删除。提交后当天确认孩子基本情况、咨询重点、适合的服务档位和语音时间；也可直接加微信 W26556962 沟通。</p>
           <div class="gaokao-form-actions">
-            <button class="gaokao-btn gaokao-btn-primary" type="submit">提交信息，预约语音咨询</button>
+            <button class="gaokao-btn gaokao-btn-primary" type="submit">提交信息，当天确认咨询时间</button>
             <span class="gaokao-form-message" data-gaokao-form-message aria-live="polite"></span>
           </div>
         </form>
@@ -1699,8 +2184,8 @@
     <div class="gaokao-container">
       <div class="gaokao-footer-inner">
         <div>
-          <h2>高考志愿填报线上语音指导</h2>
-          <p>主顾问负责核心判断，团队协助资料整理、规则核对和方案复盘。</p>
+          <h2>高考志愿填报专家团队</h2>
+          <p>高考志愿填报专家团队从业 8 年、累计服务 4000+ 家庭，核心判断由团队统筹，成员协助资料整理、规则核对和方案复盘。不满意可全额退款。</p>
         </div>
         <nav class="gaokao-footer-links" aria-label="页脚导航">
           <a href="#gaokao-method" data-gaokao-scroll="#gaokao-method">判断方法</a>
@@ -2020,7 +2505,7 @@
           }
 
           if (message) {
-            message.textContent = "信息已完成校验。我们会根据孩子情况确认语音咨询重点。";
+            message.textContent = "信息已完成校验。我们会当天确认咨询重点和语音时间，也可直接加微信 W26556962。";
           }
           form.reset();
         });
