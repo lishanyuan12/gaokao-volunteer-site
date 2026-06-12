@@ -962,58 +962,6 @@
       font-weight: 900;
     }
 
-    .gaokao-channel-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .gaokao-channel-copy {
-      padding: 28px;
-      color: #fff;
-      background: var(--gaokao-primary);
-      border: 0;
-      box-shadow: var(--gaokao-shadow);
-    }
-
-    .gaokao-channel-copy h2 {
-      margin: 0;
-      color: #fff;
-      font-size: clamp(28px, 3.8vw, 42px);
-      line-height: 1.2;
-    }
-
-    .gaokao-channel-copy p {
-      color: rgba(255, 255, 255, 0.82);
-    }
-
-    .gaokao-channel-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .gaokao-channel-card {
-      min-height: 244px;
-      padding: 22px;
-    }
-
-    .gaokao-channel-card h3 {
-      font-size: 20px;
-    }
-
-    .gaokao-channel-meta {
-      display: inline-flex;
-      margin-top: 16px;
-      padding: 7px 10px;
-      color: var(--gaokao-primary);
-      background: #eef3f7;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 900;
-    }
-
     .gaokao-qr-slot {
       display: grid;
       place-items: center;
@@ -1480,7 +1428,6 @@
       .gaokao-team-layout,
       .gaokao-pricing-grid,
       .gaokao-boundary-panel,
-      .gaokao-channel-layout,
       .gaokao-quiz-layout,
       .gaokao-contact-layout,
       .gaokao-region-panel {
@@ -1494,8 +1441,7 @@
 
       .gaokao-grid-4,
       .gaokao-grid-3,
-      .gaokao-process-grid,
-      .gaokao-channel-grid {
+      .gaokao-process-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1562,7 +1508,6 @@
       .gaokao-section-title,
       .gaokao-sticky-copy h2,
       .gaokao-region-panel h2,
-      .gaokao-channel-copy h2,
       .gaokao-quiz-intro h2,
       .gaokao-contact-copy h2,
       .gaokao-doc-label h2,
@@ -1609,7 +1554,6 @@
       .gaokao-quiz,
       .gaokao-form-card,
       .gaokao-contact-copy,
-      .gaokao-channel-copy,
       .gaokao-price-card,
       .gaokao-sticky-copy,
       .gaokao-owner-card,
@@ -1622,7 +1566,6 @@
       .gaokao-grid-4,
       .gaokao-process-grid,
       .gaokao-pricing-grid,
-      .gaokao-channel-grid,
       .gaokao-form-grid,
       .gaokao-footer-inner,
       .gaokao-pledge,
@@ -1683,7 +1626,6 @@
         <a href="#gaokao-method" data-gaokao-scroll="#gaokao-method">判断方法</a>
         <a href="#gaokao-team" data-gaokao-scroll="#gaokao-team">团队支持</a>
         <a href="#gaokao-delivery" data-gaokao-scroll="#gaokao-delivery">服务交付</a>
-        <a href="#gaokao-channels" data-gaokao-scroll="#gaokao-channels">联系入口</a>
         <a href="#gaokao-faq" data-gaokao-scroll="#gaokao-faq">常见问题</a>
       </nav>
       <div class="gaokao-nav-actions">
@@ -1973,36 +1915,6 @@
           <div class="gaokao-region-tag">全国线上咨询</div>
           <div class="gaokao-region-tag">按省份规则拆解</div>
           <div class="gaokao-region-tag">统一交付与复盘</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="gaokao-channels" class="gaokao-section gaokao-section-warm">
-      <div class="gaokao-container gaokao-channel-layout">
-        <aside class="gaokao-card gaokao-channel-copy">
-          <p class="gaokao-eyebrow">联系入口</p>
-          <h2>扫码加微信，先发孩子省份、分数位次和最担心的问题。</h2>
-          <p>如果来自小红书、家长群或朋友推荐，可以直接备注来源。添加微信后，当天会先确认资料是否完整、说明适合的服务档位，再安排语音时间。</p>
-        </aside>
-        <div class="gaokao-channel-grid">
-          <article class="gaokao-card gaokao-channel-card">
-            <h3>微信咨询</h3>
-            <p>扫码添加微信，或搜索微信号 <strong>W26556962</strong>。建议第一条消息写清考生省份、分数或位次、选科和当前最担心的问题；资料不完整也可以先发，我们会提示还缺什么。</p>
-            <div class="gaokao-qr-slot">
-              <img src="wechat-qr.jpg" alt="微信二维码，微信号 W26556962">
-              <span>微信号：W26556962</span>
-            </div>
-          </article>
-          <article class="gaokao-card gaokao-channel-card">
-            <h3>小红书私信</h3>
-            <p>适合从避坑内容、案例分析或政策解读进入咨询。页面自测可以先免费完成；如果需要结合孩子资料进一步判断，再预约核心服务或高频跟踪服务。</p>
-            <span class="gaokao-channel-meta">内容入口预留</span>
-          </article>
-          <article class="gaokao-card gaokao-channel-card">
-            <h3>电话确认</h3>
-            <p>提交表单后，当天会先确认孩子基本情况、咨询重点、适合的服务档位和时间安排。若信息不完整，会提醒补充关键资料。</p>
-            <span class="gaokao-channel-meta">当天确认时间</span>
-          </article>
         </div>
       </div>
     </section>
